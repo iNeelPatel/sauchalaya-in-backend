@@ -7,7 +7,7 @@ var ParseServer = require("parse-server").ParseServer;
 var ParseDashboard = require("parse-dashboard");
 require("dotenv").config();
 
-var port = process.env.PORT || 1337;
+var port = process.env.PORT || 1388;
 
 var indexRouter = require("./routes/index");
 
