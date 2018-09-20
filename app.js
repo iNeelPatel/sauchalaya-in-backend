@@ -7,15 +7,15 @@ var ParseServer = require("parse-server").ParseServer;
 var ParseDashboard = require("parse-dashboard");
 require("dotenv").config();
 
-var port = process.env.PORT || 1388;
+var port = process.env.PORT || 1337;
 
 var indexRouter = require("./routes/index");
 
 var app = express();
 
 // view engine setup
-// app.set("views", path.join(__dirname, "views"));
-// app.set("view engine", "jade");
+app.set("views", path.join(__dirname, "views"));
+app.set("view engine", "jade");
 
 app.use(logger("dev"));
 app.use(express.json());
@@ -57,8 +57,6 @@ var dashboard = new ParseDashboard(
 );
 
 // make the Parse Dashboard available at /dashboard
-
-app.set("port", port);
 
 app.use("/dashboard", dashboard);
 
