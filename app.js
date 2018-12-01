@@ -33,8 +33,19 @@ var api = new ParseServer({
   masterKey: process.env.masterKey
 });
 
+var api1 = new ParseServer({
+  databaseURI: process.env.databaseURI1,
+  cloud: process.env.CLOUD_CODE_MAIN || __dirname + "/cloud/main.js",
+  appId: process.env.appId1,
+  restAPIKey: process.env.restAPIKey1,
+  javascriptKey: process.env.javascriptKey1,
+  serverURL: `${process.env.serverUrl}/parse`,
+  masterKey: process.env.masterKey1
+});
+
 // make the Parse Server available at /parse
 app.use("/parse", api);
+app.use("/parse1", api1);
 
 var dashboard = new ParseDashboard(
   {
@@ -45,6 +56,12 @@ var dashboard = new ParseDashboard(
         masterKey: process.env.masterKey,
         appName: process.env.appName,
         iconName: "logo.png"
+      },
+      {
+        serverURL: `${process.env.serverUrl}/parse1`,
+        appId: process.env.appId1,
+        masterKey: process.env.masterKey1,
+        appName: process.env.appName1
       }
     ],
     users: [
