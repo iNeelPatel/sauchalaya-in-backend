@@ -56,12 +56,6 @@ var dashboard = new ParseDashboard(
         masterKey: process.env.masterKey,
         appName: process.env.appName,
         iconName: "logo.png"
-      },
-      {
-        serverURL: `${process.env.serverUrl}/parse1`,
-        appId: process.env.appId1,
-        masterKey: process.env.masterKey1,
-        appName: process.env.appName1
       }
     ],
     users: [
